@@ -14,8 +14,24 @@ li {
  cursor: pointer;
 }
 
+.modal-body {
+  position: relative;
+  overflow-y: auto;
+  max-height: 400px;
+  padding: 15px;
+}
+/*
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_lightbox
+https://www.w3schools.com/howto/howto_js_lightbox.asp
+*/
 .modal-content {
-  width: 670px !important;
+  /*width: 670px !important;*/
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
 }
 
 .selectedImage {
