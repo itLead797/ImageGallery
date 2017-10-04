@@ -1,4 +1,4 @@
-<p>
+<p style="text-align: center">
   Today's Gallery
 </p>
 <div class="modal fade" id="selectedImageModal" >
@@ -7,6 +7,12 @@
       <div class="modal-body">
          <div id="modalImage" class="selectedImage" *ngIf="selectedImage">
             <img src="{{selectedImage.url}}" style="max-width:100%">
+            <div class="btn-back" (click)=navigate(false)>
+              &lt;
+           </div>
+           <div class="btn-forward" (click)=navigate(true)>
+              &gt;
+           </div>
             <div class="caption">
                <p><strong id="selectedTitle">{{selectedImage.title}}</strong></p>
                <p id="selectedCaption">{{selectedImage.caption}}</p>

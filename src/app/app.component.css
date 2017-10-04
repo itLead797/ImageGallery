@@ -1,37 +1,5 @@
-.selectedImage {
-	width:640px;
-  position:relative }
 
-.caption {
-	position:absolute;
-        height:70px;
-	width:100%;
-	top:410;
-	left:0;
-	opacity:0.9;
-	background-color:black;
-	color:white;
-	padding:5px;
-	font-family:verdana;
-	font-size:12px;
+h1 {
+  text-align:center
 }
 
-p {
-   -webkit-margin-before: 5px !important;
-   -webkit-margin-after: 5px !important;
-}
-
-.btn-back, .btn-forward{
-	position:absolute;
-	opacity:0.9;
-	background-color:black;
-	padding:10px;
-	top:190;
-	color:white;
-	text-weight:bold;
-	cursor:pointer;
-}
-
-.btn-forward{
-	left:612;
-}

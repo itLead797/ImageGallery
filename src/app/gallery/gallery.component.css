@@ -24,8 +24,8 @@ li {
 }
 
 .caption {
-	position:absolute;
-        height:70px;
+	position:relative;
+  height:50px;
 	width:100%;
 	top:410;
 	left:0;
@@ -45,7 +45,7 @@ p {
 .btn-back, .btn-forward {
   right: 612px;
 	position:absolute;
-	opacity:0.9;
+	opacity:0.09;
 	background-color:black;
 	padding:10px;
 	top:190;
