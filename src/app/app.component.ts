@@ -71,6 +71,26 @@ export class AppComponent {
         'url': this.baseUrl + 'img_1424.jpg',
         'title': 'Barn',
         'caption': 'Abandoned barn'
+      },
+      {
+        'url': this.baseUrl + 'IMG_2644.JPG',
+        'title': 'Fancy Celling',
+        'caption': 'Stairwell at old Coca-Cola plant'
+      },
+      {
+        'url': this.baseUrl + 'IMG_0284.JPG',
+        'title': 'Balloons',
+        'caption': 'Avon hot air balloon festival'
+      },
+      {
+        'url': this.baseUrl + 'IMG_3246.1.jpg',
+        'title': 'Girl in Chair',
+        'caption': 'Spectator at horse jumping'
+      },
+      {
+        'url': this.baseUrl + 'IMG_1074.1.jpg',
+        'title': 'Gun tricks',
+        'caption': 'Wild west festival'
       }
     ];
   }

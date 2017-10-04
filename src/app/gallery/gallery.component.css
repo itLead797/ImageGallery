@@ -20,7 +20,7 @@ li {
 
 .selectedImage {
 	width:640px;
-  position:relative
+  position:sticky
 }
 
 .caption {
