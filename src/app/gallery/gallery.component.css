@@ -42,18 +42,23 @@ p {
    -webkit-margin-after: 5px !important;
 }
 
-.btn-back, .btn-forward {
-  right: 612px;
-	position:absolute;
-	opacity:0.09;
+.btn-forward {
+  position:absolute;
+  left: 612px;
+	opacity:0.9;
 	background-color:black;
 	padding:10px;
-	top:190;
 	color:white;
 	font-weight:bold;
 	cursor:pointer;
 }
-
-.btn-forward{
-	left:612;
+.btn-back {
+  position:absolute;
+  right: 612px;
+	opacity:0.9;
+	background-color:black;
+	padding:10px;
+	color:white;
+	font-weight:bold;
+	cursor:pointer;
 }
