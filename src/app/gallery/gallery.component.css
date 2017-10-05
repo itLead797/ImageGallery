@@ -8,6 +8,11 @@ li {
   display:inline;
 }
 
+#btn {
+  height: 12px;
+  width: 12px;
+}
+
 .tn{
  margin:2px 0px;
  box-shadow:#999 1px 1px 3px 1px;
@@ -17,26 +22,17 @@ li {
 .modal-body {
   position: relative;
   overflow-y: auto;
-  max-height: 400px;
+  max-height: 100%;
   padding: 15px;
 }
-/*
-https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_lightbox
-https://www.w3schools.com/howto/howto_js_lightbox.asp
-*/
+
 .modal-content {
-  /*width: 670px !important;*/
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  width: 90%;
-  max-width: 1200px;
+  width: 670px !important;
 }
 
 .selectedImage {
-	width:640px;
-  position:sticky
+  width:100%;
+  position:relative
 }
 
 .caption {
@@ -68,7 +64,7 @@ p {
 	font-weight:bold;
 	cursor:pointer;
 }
-.btn-back {
+ .btn-back {
   position:absolute;
   right: 612px;
 	opacity:0.9;
@@ -77,4 +73,9 @@ p {
 	color:white;
 	font-weight:bold;
 	cursor:pointer;
+}
+
+#btn {
+  height: 12px;
+  width: 12px;
 }
