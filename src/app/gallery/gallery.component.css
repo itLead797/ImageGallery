@@ -1,16 +1,16 @@
 ul {
   padding:0;
-  width:780px;
+
+  width:780px auto;
+  height: auto;
   margin:20px auto
 }
 
 li {
   display:inline;
 }
-
-#btn {
-  height: 12px;
-  width: 12px;
+img {
+  max-width:100%;
 }
 
 .tn{
@@ -50,32 +50,27 @@ li {
 }
 
 p {
-   -webkit-margin-before: 5px !important;
-   -webkit-margin-after: 5px !important;
+   -webkit-margin-before: 5px auto !important;
+   -webkit-margin-after: 5px auto !important;
 }
 
 .btn-forward {
   position:absolute;
-  left: 612px;
-	opacity:0.9;
-	background-color:black;
+  left: 590px;
+  bottom: 45px;
 	padding:10px;
-	color:white;
-	font-weight:bold;
-	cursor:pointer;
+  cursor:pointer;
+
 }
  .btn-back {
   position:absolute;
-  right: 612px;
-	opacity:0.9;
-	background-color:black;
+  right: 590px;
+  bottom: 45px;
 	padding:10px;
-	color:white;
-	font-weight:bold;
-	cursor:pointer;
+  cursor:pointer;
 }
 
-#btn {
-  height: 12px;
-  width: 12px;
+ #btn {
+  min-height: auto;
+  max-width: 36px;
 }
