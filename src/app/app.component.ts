@@ -14,7 +14,6 @@ export class AppComponent {
   title = 'Picture Viewer';
   images;
   baseUrl = '../assets/img/';
-
   constructor() {
     this.images = [
       {
