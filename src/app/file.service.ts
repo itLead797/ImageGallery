@@ -5,17 +5,19 @@ import { ImageRs } from './model/image-rs';
 export class FileService {
  // find = require('find');
  files: ImageRs;
-
   constructor() { }
 
-  public getFiles() {
+  public getFiles(): any {
     let find = require('find');
+
 
     find.file('../assets/img', function(files) {
       this.files.img = files;
+      console.log('getFiles');
       console.log(files.length);
      });
      return this.files;
+
   }
 }
 

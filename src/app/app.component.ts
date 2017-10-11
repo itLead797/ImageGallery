@@ -16,14 +16,19 @@ export class AppComponent  implements OnInit {
   title = 'Picture Viewer';
   images;
   baseUrl = '../assets/img/';
-  imageData: ImageRs;
+  imageData: Array<ImageRs>;
 
-  ngOnInit(): void {
+  ngOnInit(): any {
     this.imageData = this.fileService.getFiles();
+    console.log('OnInit');
     console.log(this.imageData);
+    return this.imageData;
     }
 
   constructor(private fileService: FileService) {
+    this.imageData = fileService.getFiles();
+    console.log('Constructor');
+    console.log(this.imageData);
 
     this.images = [
       {

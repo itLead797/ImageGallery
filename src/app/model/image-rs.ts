@@ -1,5 +1,5 @@
 export class ImageRs {
-  img: string;
+  url: string;
   title: string;
   caption: string;
 }
