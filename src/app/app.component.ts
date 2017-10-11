@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FileService } from './file.service';
+import { ImageRs } from './model/image-rs';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +12,19 @@ https://stackoverflow.com/questions/37965647/hostbinding-and-hostlistener-what-d
 
 */
 
-export class AppComponent {
+export class AppComponent  implements OnInit {
   title = 'Picture Viewer';
   images;
   baseUrl = '../assets/img/';
-  constructor() {
+  imageData: ImageRs;
+
+  ngOnInit(): void {
+    this.imageData = this.fileService.getFiles();
+    console.log(this.imageData);
+    }
+
+  constructor(private fileService: FileService) {
+
     this.images = [
       {
         'url': this.baseUrl + 'IMG_1411.JPG',
