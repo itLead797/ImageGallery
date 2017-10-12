@@ -10,6 +10,8 @@
       "assets": [
         "assets",
         "assets/img",
+        {"glob": "**/*", "input": "../../../img/", "output": "./src/assets/img/"},
+        "D:/training/img",
         "favicon.ico"
       ],
       "index": "index.html",
