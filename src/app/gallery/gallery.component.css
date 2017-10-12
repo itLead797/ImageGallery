@@ -28,7 +28,7 @@ img {
 }
 
 .modal-content {
-  width: 670px !important;
+  width: 670px auto !important;
 }
 
 .selectedImage {
@@ -56,22 +56,22 @@ p {
 }
 
 .btn-forward {
-  position:absolute;
-  left: 590px;
-  bottom: 45px;
-	padding:10px;
+  position:fixed;
+  right: 3%;
+  bottom: 45%;
   cursor:pointer;
 
 }
  .btn-back {
-  position:absolute;
-  right: 590px;
-  bottom: 45px;
-	padding:10px;
+  position:fixed;
+  left: 3%;
+  bottom: 45%;
   cursor:pointer;
 }
 
  #btn {
-  min-height: auto;
+  width: 100%;
   max-width: 36px;
+  min-height: auto;
+
 }
