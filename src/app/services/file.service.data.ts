@@ -1,6 +1,6 @@
 // ../assets/img/
 
- export const BASEURL = '../../dist/assets/img/';
+ export const BASEURL = 'assets/img/';
 
 export const IMAGES: any = [
   {
@@ -14,7 +14,7 @@ export const IMAGES: any = [
     'caption': 'Fall birds in a tree'
   },
   {
-    'url': BASEURL + 'img/IMG_1475.JPG',
+    'url': BASEURL + 'IMG_1475.JPG',
     'title': 'Walking',
     'caption': 'Family walk in the park'
   },
@@ -29,12 +29,12 @@ export const IMAGES: any = [
     'caption': 'Colorful fall bird'
   },
   {
-    'url': BASEURL + 'img/IMG_3163.JPG',
+    'url': BASEURL + 'IMG_3163.JPG',
     'title': 'Path',
     'caption': 'Path in the fall'
   },
   {
-    'url': BASEURL + 'img/IMG_3235.1.jpg',
+    'url': BASEURL + 'IMG_3235.1.jpg',
     'title': 'Fence',
     'caption': 'Webs in the wind'
   },
@@ -44,32 +44,32 @@ export const IMAGES: any = [
     'caption': 'Porch pumpkin'
   },
   {
-    'url': BASEURL + 'img/IMG_3248.1.jpg',
+    'url': BASEURL + 'IMG_3248.1.jpg',
     'title': 'Sunset',
     'caption': 'Sunset over the roof tops'
   },
   {
-    'url': BASEURL + 'img/IMG_3253.1.jpg',
+    'url': BASEURL + 'IMG_3253.1.jpg',
     'title': 'Backyard',
     'caption': 'Fall colors in the backyard'
   },
   {
-    'url': BASEURL + 'img/IMG_3265.1.jpg',
+    'url': BASEURL + 'IMG_3265.1.jpg',
     'title': 'Moon',
     'caption': 'Cool moonlight'
   },
   {
-    'url': BASEURL + 'img/img_1424.jpg',
+    'url': BASEURL + 'img_1424.jpg',
     'title': 'Barn',
     'caption': 'Abandoned barn'
   },
   {
-    'url': BASEURL + 'img/IMG_2644.JPG',
+    'url': BASEURL + 'IMG_2644.JPG',
     'title': 'Fancy Celling',
     'caption': 'Stairwell at old Coca-Cola plant'
   },
   {
-    'url': BASEURL + 'img/IMG_0284.JPG',
+    'url': BASEURL + 'IMG_0284.JPG',
     'title': 'Balloons',
     'caption': 'Avon hot air balloon festival'
   },
