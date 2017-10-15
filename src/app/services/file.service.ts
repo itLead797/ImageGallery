@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ImageRs } from './model/image-rs';
+import { ImageRs } from '../model/image-rs';
 import { IMAGES } from './file.service.data';
 
 @Injectable()

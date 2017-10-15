@@ -1,6 +1,6 @@
 // ../assets/img/
 
-export const BASEURL = '../../dist/assets/img/';
+ export const BASEURL = '../../dist/assets/img/';
 
 export const IMAGES: any = [
   {

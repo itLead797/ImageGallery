@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FileService } from './file.service';
+import { FileService } from './services/file.service';
 import { ImageRs } from './model/image-rs';
 
 @Component({
