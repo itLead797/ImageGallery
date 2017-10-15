@@ -11,7 +11,7 @@
         "assets",
         "assets/img",
         "favicon.ico",
-        {"glob": "**/*", "input": "../../img/", "output": "./assets/img/"}
+        {"glob": "**/*", "input": "../img/", "output": "./assets/img/"}
       ],
       "index": "index.html",
       "main": "main.ts",
