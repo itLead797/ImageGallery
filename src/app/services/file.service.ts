@@ -4,7 +4,6 @@ import { IMAGES } from './file.service.data';
 
 @Injectable()
 export class FileService {
- // find = require('find');
  images: ImageRs[];
   constructor() { }
 
