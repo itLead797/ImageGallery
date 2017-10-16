@@ -4,21 +4,27 @@ import { IMAGES } from './file.service.data';
 
 @Injectable()
 export class FileService {
- find = require('find');
+ // find = require('find');
  images: ImageRs[];
   constructor() { }
 
   public getFiles(): any {
     this.images = IMAGES;
+    let find = require('find');
 
-  //  const folder = '../../../img';
-  //  const fs = require('fs');
+    find.file('../assets/img/', function(files) {
+      console.log(files.length);
+    });
 
-  //  fs.readdir(folder, (err, files) => {
-  //   files.forEach(file => {
-  //     console.log(file);
-  //   });
-  //  });
+
+    // const folder = '../../img';
+    // const fs = require('fs');
+
+    // fs.readdir(folder, (err, files) => {
+    //   files.forEach(file => {
+    //     console.log(file);
+    //   });
+    // });
 
 
       return this.images;
