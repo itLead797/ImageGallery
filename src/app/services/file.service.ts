@@ -7,7 +7,7 @@ export class FileService {
  images: ImageRs[];
   constructor() { }
 
-  public getFiles(): any {
+  public getFiles(): ImageRs[] {
     this.images = IMAGES;
     let find = require('find');
 
