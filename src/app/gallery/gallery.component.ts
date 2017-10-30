@@ -17,6 +17,7 @@ selectedImage: ImageRs;
   }
   navigate(forward: boolean) {
     let index: number;
+    console.log('Inside Component: ' + JSON.stringify(this.selectedImage));
     index = this.datasource.indexOf(this.selectedImage) + (forward ? 1 : -1);
     if (index >= 0 && index < this.datasource.length) {
        this.selectedImage = this.datasource[index];

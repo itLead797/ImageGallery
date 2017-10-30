@@ -7,7 +7,7 @@ import { By } from '@angular/platform-browser';
 import { GalleryComponent } from './gallery.component';
 import { AppComponent } from '../app.component';
 
-describe('GalleryComponent', () => {
+describe('GalleryComponent:', () => {
   let component: GalleryComponent;
   let fixture: ComponentFixture<GalleryComponent>;
   let thumbImage;
@@ -43,11 +43,11 @@ describe('GalleryComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(GalleryComponent);
     component = fixture.componentInstance;
-   // fixture.detectChanges();
     fixture.whenStable().then( () => {
       fixture.detectChanges();
       instance = fixture.debugElement.nativeElement;
     });
+    fixture.detectChanges();
   });
 
   it('should create GalleryComponent', () => {
@@ -65,14 +65,32 @@ describe('GalleryComponent', () => {
     expect(component.selectedImage.caption).toContain(image[0].caption);
   });
 
-  xit('should be able to navigate to next image', () => {
+  it('should set selected image in UI', () => {
+    let currentImage = image[0];
+    let currentUrl = image[0].url.substr(image[0].url.length - 12);
+
     component.setSelectedImage(image[0]);
+    fixture.detectChanges();
+    let title = fixture.debugElement.query(By.css('#selectedTitle')).nativeElement.innerText;
+    expect(fixture.debugElement.query(By.css('#selectedTitle')).nativeElement.innerText).toBe(currentImage.title);
+    expect(fixture.debugElement.query(By.css('#selectedCaption')).nativeElement.innerText).toBe(currentImage.caption);
+    expect(fixture.debugElement.query(By.css('#selectedImage')).nativeElement.src).toContain(currentUrl);
+  });
+
+  fit('should be able to navigate to next image', () => {
+    component.setSelectedImage(image[0]);
+    fixture.detectChanges();
     component.navigate(true);
-    expect(component.selectedImage.title).toContain(image[1].title);
+    fixture.detectChanges();
+    let data = fixture.debugElement.query(By.css('#selectedTitle'));
+    console.log('Inside Test');
+    console.log(data);
+    // expect(data.title).toContain(image[1].title);
     // console.log(component.selectedImage.title);
   });
 
  xit('should be able to navigate to previous image', () => {
+   console.log(component.datasource);
     component.setSelectedImage(image[1]);
     component.navigate(true);
     console.log(component.selectedImage.title);
