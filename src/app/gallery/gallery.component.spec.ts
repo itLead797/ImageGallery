@@ -116,9 +116,9 @@ describe('GalleryComponent:', () => {
   });
 
   fit('should navigate to next image', () => {
-    component.ngOnInit();
-    fixture.detectChanges();
-    component.setSelectedImage(image[0]);
+    let currentImage = image[0];
+
+    component.setSelectedImage(currentImage);
     fixture.detectChanges();
     // component.navigate(true);
     // fixture.detectChanges();
