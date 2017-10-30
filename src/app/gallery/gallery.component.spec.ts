@@ -6,6 +6,33 @@ import { By } from '@angular/platform-browser';
 
 import { GalleryComponent } from './gallery.component';
 import { AppComponent } from '../app.component';
+import { FileService } from '../services/file.service';
+import { ImageRs } from '../model/image-rs';
+
+
+class fileServiceMock {
+  images: ImageRs[];
+  constructor() {
+    this.images = [
+      {
+        'url': './assets/img/IMG_1411.JPG',
+        'title': 'Fall Leaf',
+        'caption': 'Leaf in the fall'
+      },
+      {
+        'url': './assets/img/img_1467.jpg',
+        'title': 'Birds',
+        'caption': 'Fall birds in a tree'
+      },
+      {
+        'url': './assets/img/IMG_1475.JPG',
+        'title': 'Walking',
+        'caption': 'Family walk in the park'
+      }
+    ];
+  }
+}
+
 
 describe('GalleryComponent:', () => {
   let component: GalleryComponent;
@@ -13,7 +40,7 @@ describe('GalleryComponent:', () => {
   let thumbImage;
   let instance;
 
-  const image =  [
+  const image = [
     {
       'url': './assets/img/IMG_1411.JPG',
       'title': 'Fall Leaf',
@@ -33,29 +60,40 @@ describe('GalleryComponent:', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GalleryComponent, AppComponent ],
+      declarations: [GalleryComponent, AppComponent],
       imports: [FormsModule],
-      providers: [] // AppComponent
+      providers: [
+        {provide: FileService, useClass: fileServiceMock}
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(GalleryComponent);
     component = fixture.componentInstance;
-    fixture.whenStable().then( () => {
+    fixture.whenStable().then(() => {
       fixture.detectChanges();
       instance = fixture.debugElement.nativeElement;
     });
     fixture.detectChanges();
+    component.ngOnInit();
+    fixture.detectChanges();
+
   });
 
   it('should create GalleryComponent', () => {
+    expect(component).toBeDefined();
     expect(component).toBeTruthy();
   });
 
-  xit('should not display modal image until selected', () => {
-    // test here
+  it('should not display modal image until selected', () => {
+    expect(component.selectedImage).toBeUndefined();
+  });
+
+  it('should display image gallery thumbnails', () => {
+    expect(fixture.debugElement.query(By.css('#thumbnailsList')).childNodes.length).toBe(3);
+    // TODO: verify first image
   });
 
   it('should set selected image', () => {
@@ -65,11 +103,11 @@ describe('GalleryComponent:', () => {
     expect(component.selectedImage.caption).toContain(image[0].caption);
   });
 
-  it('should set selected image in UI', () => {
+  it('should display selected image, title and caption in UI', () => {
     let currentImage = image[0];
     let currentUrl = image[0].url.substr(image[0].url.length - 12);
 
-    component.setSelectedImage(image[0]);
+    component.setSelectedImage(currentImage);
     fixture.detectChanges();
     let title = fixture.debugElement.query(By.css('#selectedTitle')).nativeElement.innerText;
     expect(fixture.debugElement.query(By.css('#selectedTitle')).nativeElement.innerText).toBe(currentImage.title);
@@ -77,50 +115,25 @@ describe('GalleryComponent:', () => {
     expect(fixture.debugElement.query(By.css('#selectedImage')).nativeElement.src).toContain(currentUrl);
   });
 
-  fit('should be able to navigate to next image', () => {
+  fit('should navigate to next image', () => {
+    component.ngOnInit();
+    fixture.detectChanges();
     component.setSelectedImage(image[0]);
     fixture.detectChanges();
-    component.navigate(true);
-    fixture.detectChanges();
-    let data = fixture.debugElement.query(By.css('#selectedTitle'));
-    console.log('Inside Test');
-    console.log(data);
+    // component.navigate(true);
+    // fixture.detectChanges();
+    // let data = fixture.debugElement.query(By.css('#selectedTitle'));
+    // console.log('Inside Test');
+    // console.log(data);
     // expect(data.title).toContain(image[1].title);
     // console.log(component.selectedImage.title);
   });
 
- xit('should be able to navigate to previous image', () => {
-   console.log(component.datasource);
+  xit('should navigate to previous image', () => {
+    console.log(component.datasource);
     component.setSelectedImage(image[1]);
     component.navigate(true);
     console.log(component.selectedImage.title);
   });
-
-  xit('should display selected image information', async(() => {
-    component.setSelectedImage(image[0]);
-    fixture.detectChanges();
-    let title = fixture.debugElement.query(By.css('#selectedTitle'));
-    console.log(title);
-    // const value = instance.querySelector('#selectedTitle').textContent;
-    // url & caption
-    // console.log(value);
-   // expect(compiled.querySelector('#selectedTitle').textContent).toContain('Fall Leaf');
-  }));
-
-  xit('should display image gallery thumbnails', fakeAsync(() => {
-    expect(component).toBeDefined();
-    fixture.detectChanges();
-    const y = fixture.debugElement.query(By.css('#thumbImage_0'));
-    const z = fixture.debugElement.query(By.css('#thumbnailsList'));
-    // console.log('Y');
-    // console.log(y);
-    // console.log('Z');
-    // console.log(z);
-    // const x = fixture.debugElement.query(By.css(selector)).nativeElement;
-    // expect(instance.querySelector('#thumbImage_0').toContain(image));
-    // let value = instance.querySelector('#confirmTheFollowingElement').textContent;
-
-  }));
-
 
 });
