@@ -10,7 +10,7 @@ let fileService: FileService;
     fileService = new FileService();
 
     TestBed.configureTestingModule({
-      providers: [FileService, ImageRs],
+      providers: [FileService],
       imports: []
     });
   });
@@ -19,12 +19,11 @@ let fileService: FileService;
     expect(service).toBeTruthy();
   }));
 
-  xit('should return an image', () => {
-    let images: ImageRs[] = this.fileService.getFiles();
-    // console.log(images);
+  it('should return an image', () => {
+    let images = fileService.getFiles();
 
-    // expect(images[0].url).toBe('./assets/img/IMG_1411.JPG');
-    // expect(images[0].title).toBe('Fall Leaf');
-    // expect(images[0].caption).toBe('Leaf in the fall');
+     expect(images[0].url).toBe('./assets/img/IMG_1411.JPG');
+     expect(images[0].title).toBe('Fall Leaf');
+     expect(images[0].caption).toBe('Leaf in the fall');
   });
 });

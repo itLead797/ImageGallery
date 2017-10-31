@@ -28,6 +28,11 @@ class fileServiceMock {
         'url': './assets/img/IMG_1475.JPG',
         'title': 'Walking',
         'caption': 'Family walk in the park'
+      },
+      {
+        'url': './assets/img/IMG_1479.JPG',
+        'title': 'Water',
+        'caption': 'Cool fall stream'
       }
     ];
   }
@@ -77,8 +82,6 @@ describe('GalleryComponent:', () => {
       instance = fixture.debugElement.nativeElement;
     });
     fixture.detectChanges();
-    component.ngOnInit();
-    fixture.detectChanges();
 
   });
 
@@ -93,47 +96,50 @@ describe('GalleryComponent:', () => {
 
   it('should display image gallery thumbnails', () => {
     expect(fixture.debugElement.query(By.css('#thumbnailsList')).childNodes.length).toBe(3);
+    let data = fixture.debugElement.query(By.css('#thumbnailsList')).childNodes[0];
+    console.log(data);
     // TODO: verify first image
   });
 
-  it('should set selected image', () => {
+  it('should set selected modal image', () => {
     component.setSelectedImage(image[0]);
     expect(component.selectedImage.url).toContain(image[0].url);
     expect(component.selectedImage.title).toContain(image[0].title);
     expect(component.selectedImage.caption).toContain(image[0].caption);
   });
 
-  it('should display selected image, title and caption in UI', () => {
+  it('should display selected modal image, title and caption in UI', () => {
     let currentImage = image[0];
     let currentUrl = image[0].url.substr(image[0].url.length - 12);
 
     component.setSelectedImage(currentImage);
     fixture.detectChanges();
-    let title = fixture.debugElement.query(By.css('#selectedTitle')).nativeElement.innerText;
+   // let title = fixture.debugElement.query(By.css('#selectedTitle')).nativeElement.innerText;
     expect(fixture.debugElement.query(By.css('#selectedTitle')).nativeElement.innerText).toBe(currentImage.title);
     expect(fixture.debugElement.query(By.css('#selectedCaption')).nativeElement.innerText).toBe(currentImage.caption);
     expect(fixture.debugElement.query(By.css('#selectedImage')).nativeElement.src).toContain(currentUrl);
   });
 
-  fit('should navigate to next image', () => {
+  fit('should navigate to next modal image', async(() => {
     let currentImage = image[0];
-
+    spyOn(component, 'navigate').and.stub();
     component.setSelectedImage(currentImage);
     fixture.detectChanges();
-    // component.navigate(true);
-    // fixture.detectChanges();
-    // let data = fixture.debugElement.query(By.css('#selectedTitle'));
-    // console.log('Inside Test');
-    // console.log(data);
-    // expect(data.title).toContain(image[1].title);
-    // console.log(component.selectedImage.title);
+    let button  = fixture.debugElement.nativeElement.querySelector('.btn-forward');
+    button.click();
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(component.navigate).toHaveBeenCalled();
+      console.log(fixture.debugElement.query(By.css('#selectedTitle')).nativeElement.innerText);
+    });
+
+  }));
+
+  xit('should navigate to previous modal image', () => {
+   // test here
   });
 
-  xit('should navigate to previous image', () => {
-    console.log(component.datasource);
-    component.setSelectedImage(image[1]);
-    component.navigate(true);
-    console.log(component.selectedImage.title);
-  });
+  xit('should select an image for modal (expanded) display', () => {
 
+  });
 });

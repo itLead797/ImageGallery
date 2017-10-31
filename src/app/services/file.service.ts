@@ -9,23 +9,6 @@ export class FileService {
 
   public getFiles(): ImageRs[] {
     this.images = IMAGES;
-    let find = require('find');
-
-    find.file('../assets/img/', function(files) {
-      console.log(files.length);
-    });
-
-
-    // const folder = '../../img';
-    // const fs = require('fs');
-
-    // fs.readdir(folder, (err, files) => {
-    //   files.forEach(file => {
-    //     console.log(file);
-    //   });
-    // });
-
-
       return this.images;
   }
 }
