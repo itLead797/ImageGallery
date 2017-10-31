@@ -96,8 +96,8 @@ describe('GalleryComponent:', () => {
 
   it('should display image gallery thumbnails', () => {
     expect(fixture.debugElement.query(By.css('#thumbnailsList')).childNodes.length).toBe(3);
-    let data = fixture.debugElement.query(By.css('#thumbnailsList')).childNodes[0];
-    console.log(data);
+    // let data = fixture.debugElement.query(By.css('#thumbnailsList')).childNodes[0];
+    // console.log(data);
     // TODO: verify first image
   });
 
@@ -114,13 +114,12 @@ describe('GalleryComponent:', () => {
 
     component.setSelectedImage(currentImage);
     fixture.detectChanges();
-   // let title = fixture.debugElement.query(By.css('#selectedTitle')).nativeElement.innerText;
     expect(fixture.debugElement.query(By.css('#selectedTitle')).nativeElement.innerText).toBe(currentImage.title);
     expect(fixture.debugElement.query(By.css('#selectedCaption')).nativeElement.innerText).toBe(currentImage.caption);
     expect(fixture.debugElement.query(By.css('#selectedImage')).nativeElement.src).toContain(currentUrl);
   });
 
-  fit('should navigate to next modal image', async(() => {
+  it('should navigate to next modal image', () => {
     let currentImage = image[0];
     spyOn(component, 'navigate').and.stub();
     component.setSelectedImage(currentImage);
@@ -130,16 +129,21 @@ describe('GalleryComponent:', () => {
     fixture.detectChanges();
     fixture.whenStable().then(() => {
       expect(component.navigate).toHaveBeenCalled();
-      console.log(fixture.debugElement.query(By.css('#selectedTitle')).nativeElement.innerText);
+     // console.log(fixture.debugElement.query(By.css('#selectedTitle')).nativeElement.innerText);
     });
-
-  }));
-
-  xit('should navigate to previous modal image', () => {
-   // test here
   });
 
-  xit('should select an image for modal (expanded) display', () => {
-
+  it('should navigate to previous modal image', () => {
+    let currentImage = image[2];
+    spyOn(component, 'navigate').and.stub();
+    component.setSelectedImage(currentImage);
+    fixture.detectChanges();
+    let button  = fixture.debugElement.nativeElement.querySelector('.btn-back');
+    button.click();
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(component.navigate).toHaveBeenCalled();
+    });
+   // console.log(fixture.debugElement.query(By.css('#selectedTitle')).nativeElement.innerText);
   });
 });
