@@ -96,9 +96,11 @@ describe('GalleryComponent:', () => {
 
   it('should display image gallery thumbnails', () => {
     expect(fixture.debugElement.query(By.css('#thumbnailsList')).childNodes.length).toBe(3);
-    // let data = fixture.debugElement.query(By.css('#thumbnailsList')).childNodes[0];
-    // console.log(data);
-    // TODO: verify first image
+    // verify images display
+    // for (let i = 0; i < image.length; i++) {
+    //   let data = fixture.debugElement.query(By.css('thumbImage_' + i)).nativeElement.src;
+    //   console.log(data);
+    // }
   });
 
   it('should set selected modal image', () => {
