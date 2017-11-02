@@ -15,7 +15,6 @@ https://stackoverflow.com/questions/37965647/hostbinding-and-hostlistener-what-d
 export class AppComponent  implements OnInit {
   title = 'Picture Viewer';
   images: ImageRs[] = [];
-  baseUrl = '../assets/img/';
 
   ngOnInit(): any {
     this.images = this.fileService.getFiles();

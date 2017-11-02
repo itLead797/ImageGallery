@@ -96,6 +96,7 @@ describe('GalleryComponent:', () => {
 
   it('should display image gallery thumbnails', () => {
     expect(fixture.debugElement.query(By.css('#thumbnailsList')).childNodes.length).toBe(3);
+    // console.log(fixture.debugElement.query(By.css('#thumbnailsList')).childNodes.values);
     // verify images display
     // for (let i = 0; i < image.length; i++) {
     //   let data = fixture.debugElement.query(By.css('thumbImage_' + i)).nativeElement.src;
@@ -123,7 +124,7 @@ describe('GalleryComponent:', () => {
 
   it('should navigate to next modal image', () => {
     let currentImage = image[0];
-    spyOn(component, 'navigate').and.stub();
+    spyOn(component, 'navigate');
     component.setSelectedImage(currentImage);
     fixture.detectChanges();
     let button  = fixture.debugElement.nativeElement.querySelector('.btn-forward');
